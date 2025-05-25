@@ -1,0 +1,40 @@
+# Linux Web-Stand Disaster Recovery Project
+
+## Описание
+Проект автоматического восстановления веб-стенда с:
+- Балансировкой нагрузки (Nginx).
+- MySQL Master-Slave репликацией.
+- Мониторингом (Prometheus + Grafana).
+- Логированием (Loki + Promtail).
+
+## Инструкция по запуску
+1. **Клонировать репозиторий на все серверы**:
+   ```bash
+   git clone https://github.com/ваш_логин/linux_project.git
+
+   Настройка серверов:
+
+2. Frontend (балансировщик):
+
+bash
+cd linux_project/frontend
+sudo ./setup_frontend.sh
+
+3. Master (MySQL + мониторинг):
+
+bash
+cd linux_project/master
+sudo ./setup_master.sh
+
+4. Slave (MySQL + логирование + бэкапы):
+
+bash
+cd linux_project/slave
+sudo ./setup_slave.sh
+
+5. Аварийное восстановление:
+
+bash
+cd linux_project/recovery
+sudo ./disaster_recovery.sh
+
